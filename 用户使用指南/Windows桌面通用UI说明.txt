@@ -1,0 +1,29 @@
+本机已自动完成的部分（路径均相对于仓库根目录 ice_maa-main）：
+
+1) MaaFramework Windows x64 v5.10.4
+   - 已解压到：MaaPracticeBoilerplate\deps\bin 与 deps\share
+
+2) 项目接口（PI v2）已改为「仅 Win32」示例
+   - 文件：MaaPracticeBoilerplate\assets\interface.json
+   - 默认 window_regex 为「记事本」，请改成你要控制的窗口标题里会出现的一段文字。
+
+3) OCR 与资源
+   - 已执行：python configure.py、python install.py v0.0.1-win32
+   - 可运行目录：MaaPracticeBoilerplate\install\（内含 MaaPiCli.exe、interface.json、resource）
+
+4) 通用 UI（MFAAvalonia）
+   - 已下载并解压到：MaaPracticeBoilerplate\MFAAvalonia-win-x64\
+   - 主程序：MFAAvalonia.exe
+   - 首次若缺运行库，可运行同目录下的 DependencySetup_依赖库安装_win.bat
+
+你需要手动完成的步骤：
+
+A. 打开「记事本」或把 interface.json 里 window_regex 改成与目标窗口标题匹配。
+
+B. 启动 MFAAvalonia.exe，在软件里「添加/打开项目」，选择以下二者之一：
+   - 开发调资源用：...MaaPracticeBoilerplate\assets（interface.json 所在目录）
+   - 与 install.py 一致的可分发目录：...MaaPracticeBoilerplate\install
+
+C. 在 MFAA 中选择控制器「桌面窗口」、资源「基础资源」、再选任务运行。
+
+说明：MaaFramework 与 MFAAvalonia 会各自迭代，若遇接口不兼容，请以 MFAA 发行说明为准，并考虑将 deps 换为 MFAA 推荐版本。

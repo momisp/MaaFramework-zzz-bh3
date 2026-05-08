@@ -1,0 +1,70 @@
+{
+    "interface_version": 2,
+    "name": "Win32Practice",
+    "version": "0.0.1",
+    "label": "Win32 桌面实践",
+    "title": "Win32 桌面实践",
+    "description": "仅 Win32 控制器。请将 win32.window_regex 改为目标窗口标题包含的短字符串（如 记事本、Chrome 等）。",
+    "controller": [
+        {
+            "name": "Windows",
+            "label": "桌面窗口",
+            "description": "通过 Win32 连接前台 Windows 程序窗口",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "记事本",
+                "screencap": "PrintWindow",
+                "mouse": "PostMessageWithCursorPos",
+                "keyboard": "PostMessageWithCursorPos"
+            }
+        }
+    ],
+    "resource": [
+        {
+            "name": "base",
+            "label": "基础资源",
+            "path": ["resource/base"],
+            "controller": ["Windows"]
+        }
+    ],
+    "task": [
+        {
+            "name": "普通任务",
+            "entry": "MyTask1"
+        },
+        {
+            "name": "选项任务",
+            "entry": "MyTask2",
+            "option": ["任务选项1"]
+        },
+        {
+            "name": "参数任务",
+            "entry": "MyTask3",
+            "option": ["任务选项1"],
+            "param": {}
+        }
+    ],
+    "option": {
+        "任务选项1": {
+            "cases": [
+                {
+                    "name": "文本1",
+                    "param": {
+                        "OcrTask": {
+                            "text": "文本1"
+                        }
+                    }
+                },
+                {
+                    "name": "文本2",
+                    "param": {
+                        "OcrTask": {
+                            "text": "文本2"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
